@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html><head>
+<title>Cloud Learning Wall</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+
+<h1>☁️ Cloud Learning Wall</h1>
+<p>Share what you learned today. Learn from others.</p>
+
+
+<form method="POST">
+<input type="text" name="name" placeholder="Your name" required>
+<input type="text" name="topic" placeholder="What did you learn?" required>
+<textarea name="notes" placeholder="Short explanation" required></textarea>
+<button type="submit">Share Learning</button>
+</form>
+
+
+<h2>📚 Public Learning Feed</h2>
+
+
+{% for post in posts %}
+<div class="card">
+<strong>{{ post.name }}</strong>
+<p><b>{{ post.topic }}</b></p>
+<p>{{ post.notes }}</p>
+<small>📅 {{ post.created_at }}</small>
+</div>
+{% endfor %}
+
+<script src="static/script.js"></script>
+
+</body>
+</html>
